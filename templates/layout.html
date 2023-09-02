@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block metatitle %}Nestify | Phonestore{% endblock metatitle %}</title>
+    <meta name="description" content="Your one stop online store for reliable phone brands">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="iPhone, Samsung, Huawei, Nokia, Xiaomi, phones, devices, online-sales, e-commerce, reliable">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="http://david158.pythonanywhere.com/" />
+    <meta property="og:title" content="Phonestore" />
+   
+    
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="{% static 'stores/bootstrap/css/bootstrap.min.css' %}">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="{% static 'stores/lightbox2/css/lightbox.min.css' %}">
+    <!-- Bootstrap select-->
+    <link rel="stylesheet" href="{% static 'stores/bootstrap-select/css/bootstrap-select.min.css' %}">
+    
+    <!-- Google fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;800&amp;display=swap">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{% static 'css/style.default.css' %}" id="theme-stylesheet">
+    <!-- Custom stylesheet - for changes-->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
+   
+  </head>
+  <body>
+    <div class="page-holder">
+      {% include 'navbar.html' %}
+
+      {% block content %}
+
+      {% endblock content %}
+
+      {% block payment-gateway %}{% endblock payment-gateway %}
+      
+      {% include 'footer.html' %}
+      {% include 'scripts.html' %}
