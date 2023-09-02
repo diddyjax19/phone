@@ -5,6 +5,7 @@ from pathlib import Path
 import os
 import environ
 import dj_database_url
+import django_heroku
 from dotenv import load_dotenv
 if os.path.isfile('env.py'):
      import env
@@ -26,7 +27,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['diddy.pythonanywhere.com', 'localhost','127.0.0.1']
+ALLOWED_HOSTS = ['nestit-d6952187268f.herokuapp.com', 'localhost','127.0.0.1']
 
 # Application definition
 
@@ -77,12 +78,12 @@ WSGI_APPLICATION = 'phonestore.wsgi.application'
 
 
 # SQLite Database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
@@ -95,16 +96,16 @@ DATABASES = {
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'd9791vc80i44pf',
-#         'USER': 'tdbotopscjtwkj',
-#         'PASSWORD': '5fb28e61337775738df362ea5489fe037c0e0bee8cffde67a34289d5e660c499',
-#         'HOST': 'ec2-34-242-199-141.eu-west-1.compute.amazonaws.com',  # Set to your database host
-#         'PORT': '5432',       # Default PostgreSQL port
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd9791vc80i44pf',
+        'USER': 'tdbotopscjtwkj',
+        'PASSWORD': '5fb28e61337775738df362ea5489fe037c0e0bee8cffde67a34289d5e660c499',
+        'HOST': 'ec2-34-242-199-141.eu-west-1.compute.amazonaws.com',  # Set to your database host
+        'PORT': '5432',       # Default PostgreSQL port
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -148,7 +149,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'phonestore/static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static') # Automatically Created on Production
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+django_heroku.settings(locals()) # Automatically Created on Production
 
 # Settings for Media
 MEDIA_URL = '/media/'
