@@ -83,27 +83,27 @@ WSGI_APPLICATION = 'phonestore.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd9791vc80i44pf',
-        'USER': 'tdbotopscjtwkj',
-        'PASSWORD': '5fb28e61337775738df362ea5489fe037c0e0bee8cffde67a34289d5e660c499',
-        'HOST': 'ec2-34-242-199-141.eu-west-1.compute.amazonaws.com',  # Set to your database host
-        'PORT': '5432',       # Default PostgreSQL port
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': env('DATABASE_NAME'),
-#         'USER': env('DATABASE_USER'),
-#         'PASSWORD': env('DATABASE_PASSWORD'),
+#         'NAME': 'd9791vc80i44pf',
+#         'USER': 'tdbotopscjtwkj',
+#         'PASSWORD': '5fb28e61337775738df362ea5489fe037c0e0bee8cffde67a34289d5e660c499',
 #         'HOST': 'ec2-34-242-199-141.eu-west-1.compute.amazonaws.com',  # Set to your database host
 #         'PORT': '5432',       # Default PostgreSQL port
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': 'ec2-34-242-199-141.eu-west-1.compute.amazonaws.com',  # Set to your database host
+        'PORT': '5432',       # Default PostgreSQL port
+    }
+}
 
 # DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 #              }
