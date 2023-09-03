@@ -1,10 +1,8 @@
 from pathlib import Path
 import os
 import environ
-import dj_database_url
 import django_heroku
 from django.core.exceptions import ImproperlyConfigured
-
 from dotenv import load_dotenv
 if os.path.isfile('env.py'):
      import env
@@ -24,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG", default=False)
+DEBUG = env('DEBUG')
 # DEBUG = True
 
 ALLOWED_HOSTS = ['nestit-d6952187268f.herokuapp.com', 'localhost','127.0.0.1']
@@ -88,9 +86,9 @@ WSGI_APPLICATION = 'phonestore.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'DATABASE_NAME',
-#         'USER': 'DATABASE_USER',
-#         'PASSWORD': 'DATABASE_PASSWORD',
+#         'NAME': 'd9791vc80i44pf',
+#         'USER': 'tdbotopscjtwkj',
+#         'PASSWORD': '5fb28e61337775738df362ea5489fe037c0e0bee8cffde67a34289d5e660c499',
 #         'HOST': 'ec2-34-242-199-141.eu-west-1.compute.amazonaws.com',  # Set to your database host
 #         'PORT': '5432',       # Default PostgreSQL port
 #     }
