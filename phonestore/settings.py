@@ -1,11 +1,10 @@
-
-
 from pathlib import Path
-
 import os
 import environ
 import dj_database_url
 import django_heroku
+from django.core.exceptions import ImproperlyConfigured
+
 from dotenv import load_dotenv
 if os.path.isfile('env.py'):
      import env
@@ -103,10 +102,13 @@ DATABASES = {
         'NAME': env('DATABASE_NAME'),
         'USER': env('DATABASE_USER'),
         'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),  # Set to your database host
-        'PORT': env('PORT'),       # Default PostgreSQL port
+        'HOST': 'ec2-34-242-199-141.eu-west-1.compute.amazonaws.com',  # Set to your database host
+        'PORT': '5432',       # Default PostgreSQL port
     }
 }
+
+# DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+#              }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
