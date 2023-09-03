@@ -25,9 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env("DEBUG", default=False)
+# DEBUG = True
 
-ALLOWED_HOSTS = ['nestit-d6952187268f.herokuapp.com', 'localhost','127.0.0.1:8000']
+ALLOWED_HOSTS = ['nestit-d6952187268f.herokuapp.com', 'localhost','127.0.0.1']
 
 # Application definition
 
@@ -99,11 +100,11 @@ WSGI_APPLICATION = 'phonestore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd9791vc80i44pf',
-        'USER': 'tdbotopscjtwkj',
-        'PASSWORD': '5fb28e61337775738df362ea5489fe037c0e0bee8cffde67a34289d5e660c499',
-        'HOST': 'ec2-34-242-199-141.eu-west-1.compute.amazonaws.com',  # Set to your database host
-        'PORT': '5432',       # Default PostgreSQL port
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DATABASE_HOST'),  # Set to your database host
+        'PORT': env('PORT'),       # Default PostgreSQL port
     }
 }
 
